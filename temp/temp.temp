@@ -1,0 +1,31 @@
+array(6) 
+{
+  [0]=>array(1) 
+  {
+    [0]=>string(28) "gamerFriends2533274815432547"
+  }
+  [1]=>array(1)
+  {
+    [0]=>string(29) "gamerPresence2533274815432547"
+  }
+  [2]=>
+  array(1) {
+    [0]=>
+    string(28) "gamerProfile2533274815432547"
+  }
+  [3]=>
+  array(1) {
+    [0]=>
+    string(35) "gamerRecentActivity2533274815432547"
+  }
+  [4]=>
+  array(1) {
+    [0]=>
+    string(33) "gamerXbox360Games2533274815432547"
+  }
+  [5]=>
+  array(1) {
+    [0]=>
+    string(25) "gamercard2533274815432547"
+  }
+}

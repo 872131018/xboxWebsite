@@ -1,0 +1,20 @@
+{
+	"xuid":2533274815432547,
+	"state":"Online",
+	"devices":
+	[
+		{
+			"type":"Xbox360",
+			"titles":
+			[
+				{
+					"id":960956369,
+					"name":"Netflix",
+					"placement":"Full",
+					"state":"Active",
+					"lastModified":"2015-04-17T01:14:26.7572027Z"
+				}
+			]
+		}
+	]
+}

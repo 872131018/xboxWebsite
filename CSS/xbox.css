@@ -1,0 +1,9 @@
+.hover
+{
+	background-color: #000000 !important;
+}
+.disabled
+{
+	//display: none;
+	visibility: hidden;
+}
