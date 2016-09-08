@@ -1,40 +1,34 @@
-function retrieveProfile(passedXUID)
+function retrieveProfile(xuid)
 {
-	$.get('/xboxWebsite/PHP/homepage/homepageDriver.php', 
+	$.post(window.location.href+"index.php/profile/index", $("form").serialize(),
+		function(response, status)
 		{
-			'xuid': passedXUID,
-			'action': 'getProfile'
-		}, 
-		function(response)
-		{
-			//if get ok build profile table and show it
-			var resultArray = response.split('>');
-			var result = resultArray[0];
-			var curlResponse = resultArray[1];
-			console.log(resultArray);
-			if(result == 'insertedProfile')
+			if(status == "success")
 			{
-				$('#messageCenter').html("\
-					<span>We couldn't find that gamertag, so we added it!</span><br>\
-					<span>Do you want to bring up your profile now?</span>\
-				");
-				
-				//return the value of the Profile as JSON
-				//var profile = curlResponse;
-				dashboardManager({'action': 'setDisplayProfile'}, {'profile': curlResponse});
-			}
-			else if(result == 'updatedProfile')
-			{
-				$('#messageCenter').html("\
-					<span>Great! Your profile has been updated!</span><br>\
-					<span>Do you want to bring up your profile now?</span>\
-				");
-				displayProfile(curlResponse);
-			}
-			else
-			{
-				alert(result);
-			}
+				console.log(response);
+				if(result == 'insertedProfile')
+				{
+					$('#messageCenter').html("\
+						<span>We couldn't find that gamertag, so we added it!</span><br>\
+						<span>Do you want to bring up your profile now?</span>\
+					");
+
+					//return the value of the Profile as JSON
+					//var profile = curlResponse;
+					dashboardManager({'action': 'setDisplayProfile'}, {'profile': curlResponse});
+				}
+				else if(result == 'updatedProfile')
+				{
+					$('#messageCenter').html("\
+						<span>Great! Your profile has been updated!</span><br>\
+						<span>Do you want to bring up your profile now?</span>\
+					");
+					displayProfile(curlResponse);
+				}
+				else
+				{
+					alert(result);
+				}
 		}
 	);
 }
@@ -81,11 +75,11 @@ function profileToHTML(passedProfile)
 									<td id=tertiaryColor>Tertiary</td>\
 		               			</tr>';
 			    //server will figure out the colors
-				$.get('/xboxWebsite/PHP/homepage/homepageDriver.php', 
+				$.get('/xboxWebsite/PHP/homepage/homepageDriver.php',
 					{
 						'url': objectProperty,
 						'action': 'lookupColor'
-					}, 
+					},
 					function(response)
 					{
 						var resultArray = response.split('>');
